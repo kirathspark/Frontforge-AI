@@ -17,4 +17,4 @@ models/*.gguf
 
 # Sandboxed Workspace Outputs
 workspace/*
-!workspace/.gitkeepgit init
+!workspace/.gitkeep
