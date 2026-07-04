@@ -1,4 +1,4 @@
-from langchain_ollama import ChatOllama
+from langchain_ollama import ChatOllama # type: ignore
 from langchain_core.prompts import ChatPromptTemplate
 from src.agents.state import AgentState
 import json
