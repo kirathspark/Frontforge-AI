@@ -3,7 +3,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from src.agents.state import AgentState
 import json
 
-llm = ChatOllama(model="qwen3:4b", temperature=0.2, keep_alive=0)
+llm = ChatOllama(model="qwen3:4b", temperature=0.2, keep_alive="5m")
 
 CLARIFICATION_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are a requirements analyst for a frontend generation system.
