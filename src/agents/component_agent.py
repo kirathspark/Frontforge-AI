@@ -5,7 +5,10 @@ import json
 import os
 import re
 
-llm = ChatOllama(model="qwen3:4b", temperature=0.3, keep_alive="5m")
+# llm = ChatOllama(model="qwen3:4b", temperature=0.3, keep_alive="5m")
+# component_agent.py
+llm = ChatOllama(model="qwen3:4b", temperature=0.3, keep_alive="5m", num_predict=1200)
+
 
 COMPONENT_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are a React developer generating a single component file.
@@ -56,6 +59,7 @@ def component_node(state: AgentState) -> AgentState:
 
     for file_entry in files:
         file_path = file_entry.get("path")
+        print(f">>> Component agent generating: {file_path}", flush=True)
         component_name = file_entry.get("component", "Component")
 
         if not file_path:

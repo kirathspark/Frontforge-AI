@@ -5,7 +5,9 @@ import json
 import os
 import re
 
-llm = ChatOllama(model="qwen3:4b", temperature=0.2, keep_alive="5m")
+# llm = ChatOllama(model="qwen3:4b", temperature=0.2, keep_alive="5m")
+# styling_agent.py
+llm = ChatOllama(model="qwen3:4b", temperature=0.2, keep_alive="5m", num_predict=1200)
 
 STYLING_PROMPT = ChatPromptTemplate.from_messages([
     ("system", """You are a frontend styling specialist. You are given the existing JSX code for
@@ -65,6 +67,7 @@ def styling_node(state: AgentState) -> AgentState:
 
     # Re-style every existing component file
     for file_path, code in generated_files.items():
+        print(f">>> Styling agent styling: {file_path}", flush=True)
         try:
             result = component_chain.invoke({
                 "component_code": code,

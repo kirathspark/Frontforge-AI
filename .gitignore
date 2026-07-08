@@ -18,3 +18,7 @@ models/*.gguf
 # Sandboxed Workspace Outputs
 workspace/*
 !workspace/.gitkeep
+
+# the sample file created
+
+generated_project
